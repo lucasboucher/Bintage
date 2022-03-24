@@ -11,17 +11,18 @@
 </head>
 
 <body>
-    <h1>Accueil</h1>
+    <h1>Connexion</h1>
 
-    <a href="page_inscription.php">Page d'inscription</a><br>
-    <a href="page_connexion.php">Page de connexion</a><br>
-    <a href="read.php">Accès au CRUD des utilisateurs</a>
+    <form method="post">
+        <label for="email">E-mail</label>
+        <input type="email" name="email" id="email" placeholder="example@webmail.com"><br />
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password" placeholder="Votre mot de passe..."><br />
+        <button type="submit">Se connecter</button>
+    </form>
+
+    <a href="index.php">Retour</a>
+
 </body>
 
 </html>
-
-<!--
-TODO Faire en sorte de ne pas créer deux comptes
-TODO Hacher les mots de passe
-TODO Faire la connexion avec le dehachage
-TODO Remplir son compte utilisateur
