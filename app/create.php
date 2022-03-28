@@ -7,7 +7,7 @@ if (isset($_POST)) {
     if (isset($_POST['email']) && !empty($_POST['email'])
         && isset($_POST['password']) && !empty($_POST['password'])
         && isset($_POST['name']) && !empty($_POST['name'])
-        && isset($_POST['admin']) && !empty($_POST['admin'])
+        && isset($_POST['admin'])
         && isset($_POST['adress']) && !empty($_POST['adress'])) {
 
         $email = strip_tags($_POST['email']);
