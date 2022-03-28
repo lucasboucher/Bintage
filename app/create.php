@@ -64,7 +64,7 @@ require_once('close.php');
             </p>
             <p>
                 <label for="admin">Administrateur</label>
-                <input type="number" name="admin" id="admin">
+                <input type="number" name="admin" id="admin" min="0" max="1">
             </p>
             <p>
                 <label for="adress">Adresse</label>
