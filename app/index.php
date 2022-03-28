@@ -1,7 +1,6 @@
 <?php
 
 require_once('profil/check_if_connected.php');
-check_connexion();
 
 ?>
 
@@ -22,7 +21,7 @@ check_connexion();
 
     <?php
 
-        if (check_connexion() == true) {
+        if (check_if_connected() == true) {
             ?>
                 <p>Vous êtes connecté !</p>
                 <a href="profil/page_profil.php">Modifier son compte utilisateur</a><br><br>
@@ -45,7 +44,5 @@ check_connexion();
 </html>
 
 <!--
-TODO Faire en sorte de ne pas créer deux comptes
-TODO Hacher les mots de passe
-TODO Faire la connexion avec le dehachage
-TODO Remplir son compte utilisateur
+TODO Apprendre avec l'intervenant à hacher les mots de passe s'identifier avec
+TODO Modifier son profil

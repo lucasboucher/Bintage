@@ -1,13 +1,17 @@
 <?php
 
 require_once('check_if_connected.php');
-check_connexion();
 
-if (check_connexion() == true) {
+if (check_if_connected() == true) {
     header('Location: /index.php');
 }
 
 require_once('new_user.php');
+
+//TODO Comment faire passer une variable depuis le PHP comme quand on fait POST avec le formulaire ?
+//if ($_POST['first_connection'] == true) {
+    //echo "Vous n'avez pas encore de compte, veuillez vous inscrire !";
+//}
 
 ?>
 

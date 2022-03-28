@@ -1,9 +1,8 @@
 <?php
 
 require_once('check_if_connected.php');
-check_connexion();
 
-if (check_connexion() == true) {
+if (check_if_connected() == true) {
     header('Location: /index.php');
 }
 

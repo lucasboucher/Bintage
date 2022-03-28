@@ -10,10 +10,20 @@ $result = $query->fetchAll(PDO::FETCH_ASSOC);
 require_once('../db_close.php');
 
 $value = 0;
+$_SESSION['connect'] = false;
+
 foreach($result as $user) {
-    echo $result[$value]['email'];
+    if ($_POST['email'] == $result[$value]['email']) {
+        $_SESSION['connect'] = true;
+        header('Location: /');
+        break;
+    }
     $value = $value + 1;
-    echo '<br>';
 }
 
-//header('Location: /');
+if ($_SESSION['connect'] == false) {
+    //$_POST['first_connection'] = true;
+    //TODO Comment faire passer une variable depuis le PHP comme quand on fait POST avec le formulaire ?
+    header('Location: /profil/page_inscription.php');
+}
+

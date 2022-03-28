@@ -19,11 +19,11 @@ if (isset($_POST)) {
         $sql = "INSERT INTO `user` (`email`, `password`, `name`, `admin`, `adress`) VALUES (:email, :password, :name, :admin, :adress);";
         $query = $db->prepare($sql);
 
-        $query->bindValue(':email', $email, PDO::PARAM_STR);
-        $query->bindValue(':password', $password, PDO::PARAM_STR);
-        $query->bindValue(':name', $name, PDO::PARAM_STR);
+        $query->bindValue(':email', $email);
+        $query->bindValue(':password', $password);
+        $query->bindValue(':name', $name);
         $query->bindValue(':admin', $admin, PDO::PARAM_INT);
-        $query->bindValue(':adress', $adress, PDO::PARAM_STR);
+        $query->bindValue(':adress', $adress);
         $query->execute();
 
         header('Location: read.php');
@@ -36,7 +36,7 @@ require_once('../db_close.php');
 
 ?>
 
-<html>
+<html lang="fr">
 
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -44,6 +44,7 @@ require_once('../db_close.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <title>CRUD : Create</title>
 </head>
 
 <body>

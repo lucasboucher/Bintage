@@ -15,11 +15,11 @@ if (isset($_POST)) {
         $adress = strip_tags($_POST['adress']);
         $sql = "UPDATE `user` SET `email`=:email, `password`=:password, `name`=:name, `admin`=:admin, `adress`=:adress WHERE `id`=:id;";
         $query = $db->prepare($sql);
-        $query->bindValue(':email', $email, PDO::PARAM_STR);
-        $query->bindValue(':password', $password, PDO::PARAM_STR);
-        $query->bindValue(':name', $name, PDO::PARAM_STR);
+        $query->bindValue(':email', $email);
+        $query->bindValue(':password', $password);
+        $query->bindValue(':name', $name);
         $query->bindValue(':admin', $admin, PDO::PARAM_INT);
-        $query->bindValue(':adress', $adress, PDO::PARAM_STR);
+        $query->bindValue(':adress', $adress);
         $query->bindValue(':id', $id, PDO::PARAM_INT);
         $query->execute();
         header('Location: read.php');
@@ -36,10 +36,11 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 require_once('../db_close.php');
 ?>
 
-<html>
+<html lang="fr">
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>CRUD : Update</title>
 </head>
 <body>
     <h1>Modifier un utilisateur</h1>
