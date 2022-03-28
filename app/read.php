@@ -1,4 +1,4 @@
-f<?php
+<?php
 require_once('connect.php');
 $sql = 'SELECT * FROM `user`';
 $query = $db->prepare($sql);
