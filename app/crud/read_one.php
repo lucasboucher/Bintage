@@ -1,5 +1,5 @@
 <?php
-require_once('connect.php');
+require_once('db_connect.php');
 
 if(isset($_GET['id']) && !empty($_GET['id'])) {
     $id = strip_tags($_GET['id']);
@@ -8,7 +8,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
     $query->bindValue(':id', $id, PDO::PARAM_INT);
     $query->execute();
     $utilisateur = $query->fetch();
-    require_once('close.php');
+    require_once('db_close.php');
 }
 
 ?>

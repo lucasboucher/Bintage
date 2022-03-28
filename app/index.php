@@ -1,3 +1,10 @@
+<?php
+
+require_once('profil/check_if_connected.php');
+check_connexion();
+
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -13,9 +20,26 @@
 <body>
     <h1>Accueil</h1>
 
-    <a href="page_inscription.php">Page d'inscription</a><br>
-    <a href="page_connexion.php">Page de connexion</a><br>
-    <a href="read.php">Accès au CRUD des utilisateurs</a>
+    <?php
+
+        if (check_connexion() == true) {
+            ?>
+                <p>Vous êtes connecté !</p>
+                <a href="profil/page_profil.php">Modifier son compte utilisateur</a><br><br>
+            <?php
+
+        } else {
+            ?>
+                <p>Vous n'êtes pas connecté !</p>
+                <a href="profil/page_inscription.php">Page d'inscription</a><br>
+                <a href="profil/page_connexion.php">Page de connexion</a><br><br>
+            <?php
+        }
+
+    ?>
+
+    <a href="crud/read.php">Accès au CRUD des utilisateurs</a>
+
 </body>
 
 </html>

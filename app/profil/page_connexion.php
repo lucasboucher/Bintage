@@ -1,3 +1,14 @@
+<?php
+
+require_once('check_if_connected.php');
+check_connexion();
+
+if (check_connexion() == true) {
+    header('Location: /index.php');
+}
+
+?>
+
 <!doctype html>
 <html lang="fr">
 
@@ -12,16 +23,16 @@
 
 <body>
     <h1>Connexion</h1>
-
-    <form method="post">
+    <form method="post" action="connexion.php">
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" placeholder="example@webmail.com"><br />
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password" placeholder="Votre mot de passe..."><br />
         <button type="submit">Se connecter</button>
     </form>
+    <a href="page_inscription.php">S'inscrire</a>
 
-    <a href="index.php">Retour</a>
+    <a href="../index.php">Retour</a>
 
 </body>
 

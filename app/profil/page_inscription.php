@@ -3,16 +3,14 @@
 
 <?php
 
-$pdo = new PDO('mysql:host=db;dbname=data', 'root', 'password');
-if (!empty($_POST)):
+require_once('check_if_connected.php');
+check_connexion();
 
-    $preparedRequest = $pdo->prepare('INSERT INTO user (email, password) VALUES (:email, :password)');
-    $preparedRequest->bindValue('email', $_POST['email'], PDO::PARAM_STR);
-    $preparedRequest->bindValue('password', $_POST['password'], PDO::PARAM_STR);
-    $result = $preparedRequest->execute();
-    echo $result ? "Votre inscription a fonctionné !" : "Votre inscription n'a pas fonctionné.";
+if (check_connexion() == true) {
+    header('Location: /index.php');
+}
 
-endif;
+require_once('new_user.php');
 
 ?>
 
@@ -35,7 +33,7 @@ endif;
         <input type="password" name="password" id="password" placeholder="Votre mot de passe..."><br />
         <button type="submit">S'inscrire</button>
     </form>
-    <a href="index.php">Retour</a>
+    <a href="../index.php">Retour</a>
 
 </body>
 

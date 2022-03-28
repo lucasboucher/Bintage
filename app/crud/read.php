@@ -1,10 +1,10 @@
 <?php
-require_once('connect.php');
+require_once('db_connect.php');
 $sql = 'SELECT * FROM `user`';
 $query = $db->prepare($sql);
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-require_once('close.php');
+require_once('db_close.php');
 ?>
 
 <html>
@@ -44,7 +44,7 @@ require_once('close.php');
 
         </table>
         <a href="create.php">Ajouter</a>
-        <a href="index.php">Retour</a>
+        <a href="../index.php">Retour</a>
     </div>
 </body>
 

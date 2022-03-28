@@ -1,5 +1,5 @@
 <?php
-require_once('connect.php');
+require_once('db_connect.php');
 if (isset($_POST)) {
     if (isset($_POST['id']) && !empty($_POST['id'])
         && isset($_POST['email']) && !empty($_POST['email'])
@@ -33,7 +33,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     $query->execute();
     $result = $query->fetch();
 }
-require_once('close.php');
+require_once('db_close.php');
 ?>
 
 <html>
