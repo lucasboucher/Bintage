@@ -1,10 +1,10 @@
 <?php
-require_once('db_connect.php');
+require_once('../db_connect.php');
 $sql = 'SELECT * FROM `user`';
 $query = $db->prepare($sql);
 $query->execute();
 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-require_once('db_close.php');
+require_once('../db_close.php');
 ?>
 
 <html>

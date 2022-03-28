@@ -1,6 +1,3 @@
-<!doctype html>
-<html lang="fr">
-
 <?php
 
 require_once('check_if_connected.php');
@@ -14,6 +11,8 @@ require_once('new_user.php');
 
 ?>
 
+<!doctype html>
+<html lang="fr">
 <head>
     <title>Projet Full stack</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
