@@ -6,6 +6,10 @@ if (check_if_connected() == true) {
     header('Location: /index.php');
 }
 
+if (isset($_GET['first_connection'])) {
+    echo "Vous n'avez pas encore de compte, veuillez vous inscrire !";
+}
+
 ?>
 
 <!doctype html>
@@ -22,7 +26,7 @@ if (check_if_connected() == true) {
 
 <body>
     <h1>Connexion</h1>
-    <form method="post" action="connexion.php">
+    <form method="post" action="login.php">
         <label for="email">E-mail</label>
         <input type="email" name="email" id="email" placeholder="example@webmail.com"><br />
         <label for="password">Mot de passe</label>

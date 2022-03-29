@@ -20,10 +20,3 @@ foreach($result as $user) {
     }
     $value = $value + 1;
 }
-
-if ($_SESSION['connect'] == false) {
-    //$_POST['first_connection'] = true;
-    //TODO Comment faire passer une variable depuis le PHP comme quand on fait POST avec le formulaire ?
-    header('Location: /profil/page_inscription.php');
-}
-

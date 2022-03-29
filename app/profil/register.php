@@ -28,7 +28,6 @@ if (!empty($_POST)) {
 }
 
 //Connection à la bdd
-require_once('../db_connect.php');
 
 //Inscription du nouvel utilisateur dans la bdd
 if (!empty($_POST)) {
@@ -39,4 +38,8 @@ if (!empty($_POST)) {
     header('Location: /');
 }
 
-//TODO Est-ce qu'il faut fermer la connexion à la bdd ici ?
+if ($_SESSION['connect'] == false) {
+    header('Location: /profil/page_connexion.php?first_connection=true');
+}
+
+require_once('../db_close.php');

@@ -42,7 +42,3 @@ require_once('profil/check_if_connected.php');
 </body>
 
 </html>
-
-<!--
-TODO Apprendre avec l'intervenant à hacher les mots de passe s'identifier avec
-TODO Modifier son profil

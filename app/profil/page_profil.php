@@ -5,14 +5,14 @@ require_once('../db_connect.php');
 if (isset($_POST)) {
     if (isset($_POST['name']) && !empty($_POST['name'])) {
         $name = strip_tags($_POST['name']);
-        $sql = "UPDATE `user` SET `name`=:name  WHERE `id`=23;"; //TODO Définir ID par session
+        $sql = "UPDATE `user` SET `name`=:name  WHERE `id`=23;";
         $query = $db->prepare($sql);
         $query->bindValue(':name', $name);
         $query->execute();
     }
     if (isset($_POST['adress']) && !empty($_POST['adress'])) {
         $adress = strip_tags($_POST['adress']);
-        $sql = "UPDATE `user` SET `adress`=:adress  WHERE `id`=23;"; //TODO Définir ID par session
+        $sql = "UPDATE `user` SET `adress`=:adress  WHERE `id`=23;";
         $query = $db->prepare($sql);
         $query->bindValue(':adress', $adress);
         $query->execute();
@@ -46,4 +46,3 @@ require_once('../db_close.php');
     </form>
 </body>
 </html>
-
