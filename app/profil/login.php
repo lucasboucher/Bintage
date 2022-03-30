@@ -36,6 +36,9 @@
             header("Location: register.php?email_no_exist");
         }
     }
+
+    //Déconnexion de la base de données
+    require_once('../db_close.php');
 ?>
 <html lang="fr">
 <head>

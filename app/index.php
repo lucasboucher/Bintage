@@ -37,4 +37,3 @@
 <!--
 
 TODO Faire une barre de navigation et des boutons retour
-TODO Vérifier que la base de données est fermée à chaque fois

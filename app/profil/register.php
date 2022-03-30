@@ -24,6 +24,9 @@ if (isset($_REQUEST['email'])) {
     }
 }
 
+//Déconnexion de la base de données
+require_once('../db_close.php');
+
 ?>
 
 <html lang="fr">
