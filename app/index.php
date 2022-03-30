@@ -42,3 +42,10 @@ require_once('profil/check_if_connected.php');
 </body>
 
 </html>
+
+<!--
+
+TODO Ne pas pouvoir créer deux compte à la même adresse email
+TODO Faire une barre de navigation et des boutons retour
+TODO Faire la page de modification du profil
+TODO Vérifier que la base de données est fermée à chaque fois
