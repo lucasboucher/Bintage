@@ -1,7 +1,5 @@
 <?php
-
-require_once('profil/check_if_connected.php');
-
+    session_start();
 ?>
 
 <!doctype html>
@@ -20,32 +18,23 @@ require_once('profil/check_if_connected.php');
     <h1>Accueil</h1>
 
     <?php
-
-        if (check_if_connected() == true) {
+        if (isset($_SESSION['email'])) {
             ?>
                 <p>Vous êtes connecté !</p>
-                <a href="profil/page_profil.php">Modifier son compte utilisateur</a><br><br>
+                <a href="profil/profil.php">Modifier son compte utilisateur</a><br><br>
             <?php
-
         } else {
             ?>
                 <p>Vous n'êtes pas connecté !</p>
-                <a href="profil/page_inscription.php">Page d'inscription</a><br>
-                <a href="profil/page_connexion.php">Page de connexion</a><br><br>
+                <a href="profil/register.php">Page d'inscription</a><br>
+                <a href="profil/login.php">Page de connexion</a><br><br>
             <?php
         }
-
     ?>
-
     <a href="crud/read.php">Accès au CRUD des utilisateurs</a>
-
 </body>
-
 </html>
-
 <!--
 
-TODO Ne pas pouvoir créer deux compte à la même adresse email
 TODO Faire une barre de navigation et des boutons retour
-TODO Faire la page de modification du profil
 TODO Vérifier que la base de données est fermée à chaque fois

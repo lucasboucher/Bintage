@@ -29,10 +29,11 @@
             $query->bindValue(':adress', $adress);
             $query->bindValue(':email', $email);
             $query->execute();
+            $message_validation = "Le compte a bien été modifié !";
         }
     }
 
-    //Récupérer les données de l'utilisateur pour le mettre dans la veleur du formulaire
+    //Récupérer les données de l'utilisateur pour le mettre dans la valuer des entrées du formulaire
     if (isset($_SESSION['email']) && !empty($_SESSION['email'])) {
         $email = strip_tags($_SESSION['email']);
         $sql = "SELECT * FROM `user` WHERE `email`=:email;";
@@ -66,6 +67,8 @@
             </label><br>
             <input type="submit">
         </form><br>
-        <a href="logout.php">Déconnexion</a>
+        <a href="logout.php">Déconnexion</a><br>
+        <?php if(isset($message_validation)) { echo $message_validation; } ?>
+
     </body>
 </html>
