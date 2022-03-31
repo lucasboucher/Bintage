@@ -48,27 +48,98 @@
 
 ?>
 
-<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <title>Votre profil</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <h1>Bienvenue <?php echo $_SESSION['email']; ?> !</h1>
-        <p>C'est votre tableau de bord.</p>
-        <form method="post">
-            <label>Mon nom :
-                <input type="text" name="name" value="<?= $res['name'] ?>">
-            </label><br>
-            <label>Mon adresse :
-                <input type="text" name="adress" value="<?= $res['adress'] ?>">
-            </label><br>
-            <input type="submit">
-        </form><br>
-        <a href="logout.php">Déconnexion</a><br>
-        <?php if(isset($message_validation)) { echo $message_validation; } ?>
+<head>
+    <meta charset="utf-8" />
+    <title>Compte</title>
+    <style>
+        body{
+            background-color: #FFF8F7;
+        }
+        div.header1{
+            width: 253px;
+            margin: 50px auto 40px;
+        }
 
-    </body>
+        tr{
+            height: 50px;
+        }
+        td{
+            padding-left: 30px;
+        }
+        .ligne{
+            height: 2px;
+            width: 1100px;
+            background-color: #706762;
+            margin-top: 110px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .footer{
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+        h2{
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.534);
+        }
+        .other{
+            margin-top: 110px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Bienvenue <?php echo $_SESSION['email']; ?> !</h1>
+<p>C'est votre tableau de bord.</p>
+<form method="post">
+    <label>Mon nom :
+        <input type="text" name="name" value="<?= $res['name'] ?>">
+    </label><br>
+    <label>Mon adresse :
+        <input type="text" name="adress" value="<?= $res['adress'] ?>">
+    </label><br>
+    <input type="submit">
+</form><br>
+<a href="logout.php">Déconnexion</a><br>
+<?php if(isset($message_validation)) { echo $message_validation; } ?>
+
+<div class="header1">
+    <a href="../index.html"><img src="../asset/LOGO.png" alt="Logo"></a>
+</div>
+<div>
+    <div align="center">
+        <table>
+            <tr>
+                <td><a href="#"><img src="../asset/Rechercher.png" alt="Loupe"></a></td>
+                <td><a href="../sale.html"><img src="../asset/Vendre.png" alt="Etiquette"></a></td>
+                <td><a href="../chat.html"><img src="../asset/Message.png" alt="Bulle"></a></td>
+                <td><a href="login.php"><img src="../asset/Compte2.png" alt="Contact"></a></td>
+                <td><a href="../cart.html"><img src="../asset/Panier.png" alt="Panier"></a></td>
+            </tr>
+        </table>
+    </div>
+    <div align="center" class="other">
+        <img src="../asset/ComptePage.png" alt="Vendre">
+
+    </div>
+
+</div>
+<div  class="ligne"> </div>
+<div align="center">
+    <table class="footer">
+        <tr class="footer1">
+            <td class="footer2"><h2>Politique de Confidentialité</h2></td>
+            <td class="footer2"><h2>Politique de cookies</h2></td>
+            <td class="footer2"><h2>Paramètres des cookies</h2></td>
+            <td class="footer2"><h2>Termes et Conditions</h2></td>
+        </tr>
+        <tr class="footer">
+            <td class="footer2"><h2>Conditions d'utilisation Pro</h2></td>
+            <td class="footer2"><h2>Notre plateforme</h2></td>
+            <td class="footer2"><h2>Conditions de vente Pro</h2></td>
+        </tr>
+    </table>
+</div>
+</body>
 </html>
