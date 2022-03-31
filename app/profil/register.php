@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    require('check.php');
-    check_if_connected(false, "already");
+session_start();
+require('check.php');
+check_if_connected(false, "already");
 
 if (isset($_GET['email_no_exist'])) {
-    echo "Cet e-mail n'est pas inscrit.";
+    $message_redirection = "Cet e-mail n'est pas inscrit.";
 }
 
 require('../db_connect.php');
@@ -24,20 +24,7 @@ if (isset($_REQUEST['email'])) {
     }
 }
 
-//Déconnexion de la base de données
-require_once('../db_close.php');
 
-?>
-
-<html lang="fr">
-<head>
-    <title>Inscription</title>
-    <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</head>
-<body>
-
-<?php
 
 if (isset($_REQUEST['email'], $_REQUEST['password']) && $new_email == true){
     $email = stripslashes($_REQUEST['email']);
@@ -48,27 +35,137 @@ if (isset($_REQUEST['email'], $_REQUEST['password']) && $new_email == true){
     $query->bindValue(':password', $password);
     $res = $query->execute();
     if($res) {
-        ?>
-            <h3>Vous êtes inscrit avec succès.</h3>
-            <p>Cliquez ici pour vous <a href='login.php'>connecter</a> !</p>
-        <?php
+        header("Location: login.php?register_success");
     }
 }
-else {
-    ?>
-        <form class="box" action="" method="post">
-            <h1 class="box-title">S'inscrire</h1><br>
-            <label>E-mail :
-                <input type="text" class="box-input" name="email" placeholder="Votre e-mail préféré" required />
-            </label><br><br>
-            <label>Mot de passe :
-                <input type="password" class="box-input" name="password" placeholder="Un mot de passe solide" required />
-            </label><br><br>
-            <input type="submit" name="submit" value="S'inscrire" class="box-button" /><br><br>
-            <p class="box-register">Déjà inscrit? <a href="login.php">Connectez-vous ici</a></p>
-        </form>
-    <?php
-}
+
+//Déconnexion de la base de données
+require_once('../db_close.php');
+
 ?>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Inscription</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100%;
+            background-image: url("../asset/Fond.png");
+        }
+        .Taille{
+            width: 432px;
+            height: 601px;
+            background-color: #FFF8F7;
+        }
+        .Logo{
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        input{
+            width: 300px;
+            height: 40px;
+            background-color: hsla(12, 22%, 55%, 0.281);
+            border: none;
+            border-radius: 18px;
+
+        }
+        input::placeholder {
+            color: rgba(0, 0, 0, 0.336);
+            opacity: 1;
+            font-size: 18px;
+
+        }
+        .beau{
+            margin-bottom: 15px;
+        }
+        a{
+            color: black;
+            text-decoration: none;
+        }
+        .autre{
+            width: 300px;
+            text-align: right;
+            margin-top: 10px;
+        }
+        .button1{
+            width: 300px;
+            height: 40px;
+            background-color: #FFF8F7;
+            border-color: #C7ACA5;
+            border-radius: 18px;
+            font-size: 20px;
+            margin-top: 30px;
+        }
+        .button2{
+            width: 300px;
+            height: 40px;
+            background-color: #A67F75;
+            border-color: #A67F75;
+            border-radius: 18px;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            color: white;
+
+        }
+        .other{
+            padding-top: 90px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="other">
+    <table align="center">
+        <tr>
+            <td>
+                <div>
+                    <img src="../asset/ImageInscription.png" alt="Decoration">
+                </div>
+            </td>
+            <td>
+                <div class="Taille" align="center">
+                    <div>
+                        <a href="../index.html"><img src="../asset/LOGO.png" alt="Logo" class="Logo"></a>
+                    </div>
+                    <?php if (!empty($message_redirection)) { echo $message_redirection; } ?>
+                    <form action="" method="post" name="login">
+                        <div>
+                            <input type="email" name="email" placeholder="    Adresse mail" class="beau" required>
+                        </div>
+                        <div>
+                            <input type="password" name="password" placeholder="    Mot de passe" required >
+                        </div>
+
+                        <div class="autre" >
+                            <a href="#">Mot de passe oublié ?</a>
+                        </div>
+                        <div class="autre" >
+                            <?php if (!empty($message_register_success)) { echo $message_register_success; } ?>
+                        </div>
+                        <div>
+                            <button type="submit" name="submit" class="button1">INSCRIPTION</button>
+                        </div>
+                        <div>
+                            <a href="login.php"><button type="button" class="button2">OU SE CONNECTER</button></a>
+                        </div>
+                        <div>
+                            <a href="#">Ou inscrivez-vous avec </a>
+                        </div>
+                    </form>
+                    <div>
+                        <table>
+                            <tr>
+                                <td><a href="https://www.google.fr/"><img src="../asset/google%60.png" alt="google"></a></td>
+                                <td><a href="https://fr-fr.facebook.com/"><img src="../asset/facebook.png" alt="facebook"></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
 </body>
 </html>
