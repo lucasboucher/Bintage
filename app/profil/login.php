@@ -52,7 +52,7 @@ require_once('../db_close.php');
             body{
                 height: 100vh;
                 width: 100%;
-                background-image: url("../asset/Fond.png");
+                background-image: url("../assets/Fond.png");
             }
             .Taille{
                 width: 432px;
@@ -122,13 +122,13 @@ require_once('../db_close.php');
                 <tr>
                     <td>
                         <div>
-                            <img src="../asset/ImageInscription.png" alt="Decoration">
+                            <img src="../assets/ImageInscription.png" alt="Decoration">
                         </div> 
                     </td>
                     <td>
                         <div class="Taille" align="center">
                             <div>
-                                <a href="../index.html"><img src="../asset/LOGO.png" alt="Logo" class="Logo"></a>
+                                <a href="../index.html"><img src="../assets/LOGO.png" alt="Logo" class="Logo"></a>
                             </div>
                             <?php if (!empty($message_redirection)) { echo $message_redirection; } ?>
                             <form action="" method="post" name="login">
@@ -158,8 +158,8 @@ require_once('../db_close.php');
                             <div>
                                 <table>
                                     <tr>
-                                        <td><a href="https://www.google.fr/"><img src="../asset/google%60.png" alt="google"></a></td>
-                                        <td><a href="https://fr-fr.facebook.com/"><img src="../asset/facebook.png" alt="facebook"></a></td>
+                                        <td><a href="https://www.google.fr/"><img src="../assets/google%60.png" alt="google"></a></td>
+                                        <td><a href="https://fr-fr.facebook.com/"><img src="../assets/facebook.png" alt="facebook"></a></td>
                                     </tr>
                                 </table>
                             </div>

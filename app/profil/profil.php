@@ -105,22 +105,22 @@
 <?php if(isset($message_validation)) { echo $message_validation; } ?>
 
 <div class="header1">
-    <a href="../index.html"><img src="../asset/LOGO.png" alt="Logo"></a>
+    <a href="../index.html"><img src="../assets/LOGO.png" alt="Logo"></a>
 </div>
 <div>
     <div align="center">
         <table>
             <tr>
-                <td><a href="#"><img src="../asset/Rechercher.png" alt="Loupe"></a></td>
-                <td><a href="../sale.html"><img src="../asset/Vendre.png" alt="Etiquette"></a></td>
-                <td><a href="../chat.html"><img src="../asset/Message.png" alt="Bulle"></a></td>
-                <td><a href="login.php"><img src="../asset/Compte2.png" alt="Contact"></a></td>
-                <td><a href="../cart.html"><img src="../asset/Panier.png" alt="Panier"></a></td>
+                <td><a href="#"><img src="../assets/Rechercher.png" alt="Loupe"></a></td>
+                <td><a href="../sale.html"><img src="../assets/Vendre.png" alt="Etiquette"></a></td>
+                <td><a href="../chat.html"><img src="../assets/Message.png" alt="Bulle"></a></td>
+                <td><a href="login.php"><img src="../assets/Compte2.png" alt="Contact"></a></td>
+                <td><a href="../cart.html"><img src="../assets/Panier.png" alt="Panier"></a></td>
             </tr>
         </table>
     </div>
     <div align="center" class="other">
-        <img src="../asset/ComptePage.png" alt="Vendre">
+        <img src="../assets/ComptePage.png" alt="Vendre">
 
     </div>
 
