@@ -1,58 +1,50 @@
 <?php
-require_once('../db_connect.php');
-
-if(isset($_GET['id']) && !empty($_GET['id'])) {
-    $id = strip_tags($_GET['id']);
-    $sql = 'SELECT * FROM `user` WHERE `id`=:id';
-    $query = $db->prepare($sql);
-    $query->bindValue(':id', $id, PDO::PARAM_INT);
-    $query->execute();
-    $utilisateur = $query->fetch();
-    require_once('../db_close.php');
-}
-
+require_once('../../db_connect.php');
+$sql = 'SELECT * FROM `user`';
+$query = $db->prepare($sql);
+$query->execute();
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
+require_once('../../db_close.php');
 ?>
 
-<html lang="fr">
+<html>
 
 <head>
-    <title>CRUD : Read</title>
-
+    <title>Liste des utilisateurs</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
-
 </head>
 
 <body>
 
     <div class="container">
 
-        <h1>Détail de l'utilisateur</h1>
+        <H1>CRUD des utilisateurs</H1>
 
         <table class="table">
 
+            <?php
+        foreach($result as $utilisateur){
+            ?>
             <tr>
                 <td><?= $utilisateur['id'] ?></td>
-
                 <td><?= $utilisateur['email'] ?></td>
-
                 <td><?= $utilisateur['password'] ?></td>
-
                 <td><?= $utilisateur['name'] ?></td>
-
-                <td><?= $utilisateur['admin'] ?></td>
-
-                <td><?= $utilisateur['adress'] ?></td>
-
+                <td><a href="read_one.php?id=<?= $utilisateur['id'] ?>">Voir</a>
+                <td><a href="update.php?id=<?= $utilisateur['id'] ?>">Modifier</a>
+                <td><a href="delete.php?id=<?= $utilisateur['id'] ?>">Supprimer</a>
             </tr>
 
+            <?php
+        }?>
+
         </table>
-
-        <a href="read.php">Retour</a>
-
+        <a href="create.php">Ajouter</a>
+        <a href="../index.html">Retour</a>
     </div>
 </body>
 

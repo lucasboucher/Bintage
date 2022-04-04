@@ -4,12 +4,12 @@
     session_start();
 
     //Redirection si on est pas connecté
-    require('check.php');
+    require('check_in_profil.php');
     check_if_connected(true, "no_connected");
 
     //Message si on est déjà connecté
     if (isset($_GET['already'])) {
-        echo "Vous êtes déjà connecté.";
+        $message_validation = "Vous êtes déjà connecté.";
     }
 
     //Connexion à la base de données
@@ -263,14 +263,14 @@
 </head>
 <body>
 <div class="header1">
-    <a href="../index.html"><img src="../assets/LOGO.png" alt="Logo"></a>
+    <a href="../index.php"><img src="../assets/LOGO.png" alt="Logo"></a>
 </div>
 <div>
     <div align="center">
         <table>
             <tr>
                 <td><a href="#"><img src="../assets/Rechercher.png" alt="Loupe"></a></td>
-                <td><a href="../sale.html"><img src="../assets/Vendre.png" alt="Etiquette"></a></td>
+                <td><a href="../sale.php"><img src="../assets/Vendre.png" alt="Etiquette"></a></td>
                 <td><a href="../chat.html"><img src="../assets/Message.png" alt="Bulle"></a></td>
                 <td><a href="../profil/profil.php"><img src="../assets/Compte2.png" alt="Contact"></a></td>
                 <td><a href="../cart.html"><img src="../assets/Panier.png" alt="Panier"></a></td>

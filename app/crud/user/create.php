@@ -1,6 +1,6 @@
 <?php
 
-require_once('../db_connect.php');
+require_once('../../db_connect.php');
 
 if (isset($_POST)) {
 
@@ -32,7 +32,7 @@ if (isset($_POST)) {
 
 }
 
-require_once('../db_close.php');
+require_once('../../db_close.php');
 
 ?>
 

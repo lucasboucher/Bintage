@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('check.php');
+require('check_in_profil.php');
 check_if_connected(false, "already");
 
 if (isset($_GET['no_connected'])) {
@@ -128,15 +128,19 @@ require_once('../db_close.php');
                     <td>
                         <div class="Taille" align="center">
                             <div>
-                                <a href="../index.html"><img src="../assets/LOGO.png" alt="Logo" class="Logo"></a>
+                                <a href="../index.php"><img src="../assets/LOGO.png" alt="Logo" class="Logo"></a>
                             </div>
                             <?php if (!empty($message_redirection)) { echo $message_redirection; } ?>
                             <form action="" method="post" name="login">
                                 <div>
-                                    <input type="email" name="email" placeholder="    Adresse mail" class="beau" required>
+                                    <label>
+                                        <input type="email" name="email" placeholder="    Adresse mail" class="beau" required>
+                                    </label>
                                 </div>
                                 <div>
-                                    <input type="password" name="password" placeholder="    Mot de passe" required >
+                                    <label>
+                                        <input type="password" name="password" placeholder="    Mot de passe" required >
+                                    </label>
                                 </div>
 
                                 <div class="autre" >
