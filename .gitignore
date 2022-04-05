@@ -1,3 +1,4 @@
 app/vendor
 dump_data.sql
 app/front
+.idea
